@@ -12,25 +12,26 @@ void encontrarPalabraMasLarga(const char *texto) {
     for (int i = 0; i < strlen(texto); i++){
         if (texto[i] != ' '){ 
             fin += 1;
-        } else {
+        } 
+        else {
             if (fin - init > fin_maslarga - init_maslarga){
                 init_maslarga = init;
                 fin_maslarga = fin;
-            
+            }
             init = i + 1;
             fin = init - 1;
-            }
+            
         }
     }
     if (fin - init > fin_maslarga - init_maslarga){
         init_maslarga = init;
         fin_maslarga = fin;
     }
-    (int i = init_maslarga; i < fin_maslarga + 1; i++){
-        printf("%d", texto[i]);
+    for (int i = init_maslarga; i < fin_maslarga + 1; i++){
+        printf("%c", texto[i]);
     }
     printf("\n");
-    printf("%d",fin_maslarga - init_maslarga + 1);
+    printf("%d\n",fin_maslarga - init_maslarga + 1);
 }
 
 int main() {

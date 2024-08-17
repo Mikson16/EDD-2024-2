@@ -39,11 +39,13 @@ int main(int argc, char **argv) {
     //    AQUI ESTA MALO, DEBES HACER CAMBIOS
     for (int i = 0; i < 3; i++){
         for (int j = 0; j < 3; j++){
-            Celda* nueva_celda = calloc(1, sizeof(Celda));
-            nueva_celda -> x = i;
-            nueva_celda -> y = j;
+            //Celda* nueva_celda = calloc(1, sizeof(Celda));
+            Matriz[i][j].x = i;
+            Matriz[i][j].y = j;
+            //nueva_celda -> x = i;
+            //nueva_celda -> y = j;
 
-            Matriz[i][j] = nueva_celda;
+            //Matriz[i][j] = nueva_celda;
         }
     }
 
@@ -54,7 +56,7 @@ int main(int argc, char **argv) {
 
     for (int i = 0; i < 3; i++){
         for (int j = 0; j < 3; j++){
-            printf("");
+            printf("%d, %d|", i, j);
         }
         printf("\n");
     }    

@@ -56,7 +56,7 @@ typedef struct TreeNode {
 
 struct TreeNode * createNode(int nodeID, int value) {
     /* !! - Por acá hay errores a reparar (2) ..... */
-    treeNode newNode = calloc(1, treeNode); 
+    treeNode* newNode = calloc(1, sizeof(treeNode)); 
 
     newNode->nodeID = nodeID; 
     newNode->value = value;
@@ -83,6 +83,12 @@ void insertNode(treeNode * rootNode, treeNode * nodeToInsert) {
             }
         } else { // notar que si hay empate en value, se va al lado derecho.
             /* !! - COMPLETAR  */
+            if(pCurrentNode->right){
+                pCurrentNode = pCurrentNode->right;
+            } else {
+                pCurrentNode->right = nodeToInsert;
+                isInserted = true;
+            }
         }
     }
 }
@@ -130,7 +136,7 @@ int main() {
     printTree(rootNode);
 
     /* !! - Siento que se nos está olvidando algo acá ... */
-
+    free(rootNode);
 
     /* ... yo que tu ejecuto el código valgrind para verificarlo */
     
